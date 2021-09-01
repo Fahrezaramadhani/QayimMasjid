@@ -25,15 +25,20 @@ import com.example.qayimmasjid.ui.profil.EditProfilPengurusMasjidActivity;
 import com.google.android.material.button.MaterialButton;
 
 public class ProfilPengurusMasjidFragment extends Fragment {
+    private Dialog dialogHapusAkun;
     private ProfilMasjidViewModel profilMasjidViewModel;
     private MaterialButton btnEditProfilPengurusMasjid, btnDeleteProfilPengurusMasjid;
+    private Button btnHapus, btnBatal;
     private TextView tv_namaPengurus, tv_alamatPengurus, tv_emailPengurus, tv_idPengurus;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profil_pengurus_masjid, container, false);
 
+        dialogHapusAkun = new Dialog(getContext());
+        
         profilMasjidViewModel = new ViewModelProvider(requireActivity()).get(ProfilMasjidViewModel.class);
 
         btnEditProfilPengurusMasjid = view.findViewById(R.id.button_edit_profil_pengurus_masjid);
@@ -70,8 +75,29 @@ public class ProfilPengurusMasjidFragment extends Fragment {
     }
 
     public void openDialogHapusAkun() {
-        HapusAkunDialogFragment dialog = new HapusAkunDialogFragment(SharedPrefManager.getInstance(getActivity()).getUser().getMidpengurus());
-        dialog.show(getFragmentManager(), "Dialog Hapus Akun");
+        Log.d("log", "openDialogHapusAkun: Dialog terbuka!");
+        dialogHapusAkun.setContentView(R.layout.fragment_hapus_akun_dialog);
+        btnHapus = (Button) dialogHapusAkun.findViewById(R.id.btn_okay);
+        btnBatal = (Button) dialogHapusAkun.findViewById(R.id.btn_cancel);
+        dialogHapusAkun.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialogHapusAkun.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        btnHapus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteAccount(v);
+                Toast.makeText(getContext(), "Data berhasil terhapus", Toast.LENGTH_SHORT).show();
+                dialogHapusAkun.dismiss();
+                startActivity(new Intent(getActivity(), SplashScreen.class));
+            }
+        });
+        btnBatal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Cancel", Toast.LENGTH_SHORT).show();
+                dialogHapusAkun.dismiss();
+            }
+        });
+        dialogHapusAkun.show();    
     }
 
     private void setProfilPengurus(){
