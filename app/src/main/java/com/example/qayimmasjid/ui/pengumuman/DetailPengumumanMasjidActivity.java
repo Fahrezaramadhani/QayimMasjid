@@ -23,6 +23,8 @@ import com.example.qayimmasjid.ui.kegiatan.EditKegiatanMasjidActivity;
 import com.google.android.material.button.MaterialButton;
 
 public class DetailPengumumanMasjidActivity extends AppCompatActivity {
+    private Dialog dialogHapusPengumuman;
+    private Button btnHapus, btnBatal;
     private TextView tv_NamaPengumuman, tv_Deskripsi, tv_CP, tv_NamaMasjid;
     private String idPengumuman, idMasjid, namaPengumuman, deskripsi, cp;
     private MaterialButton btn_edit_pengumuman, btn_hapus_pengumuman;
@@ -36,7 +38,8 @@ public class DetailPengumumanMasjidActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-
+        
+        dialogHapusPengumuman = new Dialog(this);
         pengumumanViewModel = new ViewModelProvider(this).get(PengumumanViewModel.class);
         profilMasjidViewModel = new ViewModelProvider(this).get(ProfilMasjidViewModel.class);
 
@@ -68,7 +71,7 @@ public class DetailPengumumanMasjidActivity extends AppCompatActivity {
         btn_hapus_pengumuman.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deletePengumuman(idPengumuman);
+                openDialogHapusPengumuman();
             }
         });
     }
@@ -116,7 +119,33 @@ public class DetailPengumumanMasjidActivity extends AppCompatActivity {
         }
         return i;
     }
-
+    
+    public void openDialogHapusPengumuman() {
+        Log.d("log", "openDialogHapusPengumuman: Dialog terbuka!");
+        dialogHapusPengumuman.setContentView(R.layout.dialog_hapus_pengumuman);
+        btnHapus = (Button) dialogHapusPengumuman.findViewById(R.id.btn_konfirmasi_hapus_pengumuman);
+        btnBatal = (Button) dialogHapusPengumuman.findViewById(R.id.btn_cancel_konfirmasi_hapus_pengumuman);
+        dialogHapusPengumuman.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialogHapusPengumuman.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        btnHapus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deletePengumuman(idPengumuman);
+                Toast.makeText(getApplicationContext(), "Kegiatan berhasil terhapus", Toast.LENGTH_SHORT).show();
+                dialogHapusPengumuman.dismiss();
+                finish();
+            }
+        });
+        btnBatal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Cancel", Toast.LENGTH_SHORT).show();
+                dialogHapusPengumuman.dismiss();
+            }
+        });
+        dialogHapusPengumuman.show();
+    }
+    
     public void deletePengumuman(String idPengumuman){
         pengumumanViewModel.deletePengumuman(idPengumuman);
         pengumumanViewModel.getData().observe(this, pengumumanList -> {
