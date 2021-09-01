@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pengurus_masjid_mobile_navigation"
+    app:startDestination="@+id/navigation_home_pengurus_masjid">
+
+    <fragment
+        android:id="@+id/navigation_home_pengurus_masjid"
+        android:name="com.example.qayimmasjid.ui.dashboard.HomePengurusMasjidFragment"
+        android:label="Beranda"
+        tools:layout="@layout/fragment_home_pengurus_masjid" />
+
+    <fragment
+        android:id="@+id/navigation_profil_masjid"
+        android:name="com.example.qayimmasjid.ui.dashboard.ProfilMasjidFragment"
+        android:label="Profil Masjid"
+        tools:layout="@layout/fragment_profil_masjid" />
+
+    <fragment
+        android:id="@+id/navigation_profil_pengurus"
+        android:name="com.example.qayimmasjid.ui.dashboard.ProfilPengurusMasjidFragment"
+        android:label="Profil Pengurus"
+        tools:layout="@layout/fragment_profil_pengurus_masjid" />
+</navigation>

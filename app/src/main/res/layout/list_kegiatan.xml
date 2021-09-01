@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginBottom="16dp"
+    android:padding="10dp"
+    android:background="@drawable/list_masjid_border">
+
+    <ImageView
+        android:id="@+id/list_masjid_image"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/image_corner_radius"
+        android:src="@drawable/ic_list_kegiatan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_list_kegiatan_masjid"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/tajawal_bold"
+        android:text="Qurban"
+        android:textColor="#16661C"
+        android:textSize="16dp"
+        app:layout_constraintStart_toEndOf="@+id/list_masjid_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_list_masjid_tanggal"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/tajawal_regular"
+        android:text="30-08-2021"
+        android:textColor="#16661C"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/list_masjid_image"
+        app:layout_constraintTop_toBottomOf="@+id/tv_list_kegiatan_masjid" />
+
+    <TextView
+        android:id="@+id/ketua_pelaksana"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="1dp"
+        android:fontFamily="@font/tajawal_regular"
+        android:text="Rizaldi"
+        android:textColor="#16661C"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/list_masjid_image"
+        app:layout_constraintTop_toBottomOf="@+id/tv_list_masjid_tanggal" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/ic_circle_arrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

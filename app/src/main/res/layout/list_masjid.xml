@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginBottom="16dp"
+    android:padding="10dp"
+    android:background="@drawable/list_masjid_border">
+
+    <ImageView
+        android:id="@+id/list_masjid_image"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:background="@drawable/image_corner_radius"
+        android:src="@drawable/image_masjid"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/list_masjid_nama"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/tajawal_bold"
+        android:text="Masjid At-Takwa"
+        android:textColor="#16661C"
+        android:textSize="16dp"
+        app:layout_constraintStart_toEndOf="@+id/list_masjid_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/list_masjid_alamat"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/tajawal_regular"
+        android:text="Jl. Karangsari No.6"
+        android:textColor="#16661C"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/list_masjid_image"
+        app:layout_constraintTop_toBottomOf="@+id/list_masjid_nama" />
+
+    <TextView
+        android:id="@+id/jarak"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/tajawal_regular"
+        android:text="0.2 km"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/list_masjid_image"
+        app:layout_constraintTop_toBottomOf="@+id/list_masjid_alamat" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/ic_circle_arrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

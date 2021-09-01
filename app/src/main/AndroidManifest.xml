@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.qayimmasjid">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.QayimMasjid">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCchISnIlp-X7Eh0-5rFVAY9K6Jc-KJuXI" />
+        <activity
+            android:name=".ui.transaksi.EditTransaksiMasjidActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".ui.transaksi.TambahTransaksiMasjidActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".ui.transaksi.DetailTransaksiMasjidActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".ui.transaksi.ManageTransaksiMasjidActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".ui.pengumuman.EditPengumumanMasjidActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".ui.pengumuman.TambahPengumumanMasjidActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".ui.pengumuman.DetailPengumumanMasjidActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".ui.pengumuman.ManagePengumumanMasjidActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".ui.profil.DetailMasjidActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".ui.kegiatan.EditKegiatanMasjidActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".ui.kegiatan.DetailKegiatanMasjidActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".ui.kegiatan.TambahKegiatanMasjidActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".ui.kegiatan.ManageKegiatanMasjidActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".ui.profil.EditProfilPengurusMasjidActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".TambahMasjidActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".ui.profil.EditProfilMasjidActivity"
+            android:label="TambahPengurusMasjid"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main2"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".MainActivityPengurusMasjid"
+            android:label="@string/title_activity_main_pengurus_masjid"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.SplashScreen"
+            android:label="@string/title_activity_splash_screen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LupaPasswordActivity"
+            android:label="LupaPassword"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".TambahPengurusMasjidActivity"
+            android:label="TambahPengurusMasjid"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.profil.DashboardTambahPengurusActivity"
+            android:windowSoftInputMode="adjustPan" />
+    </application>
+
+</manifest>

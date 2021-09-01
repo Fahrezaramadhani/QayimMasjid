@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home_pengurus_masjid"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Beranda" />
+
+    <item
+        android:id="@+id/navigation_profil_masjid"
+        android:icon="@drawable/ic_masjid"
+        android:title="Profil Masjid" />
+
+    <item
+        android:id="@+id/navigation_profil_pengurus"
+        android:icon="@drawable/ic_people_bottom_nav"
+        android:title="Profil Pengurus" />
+
+</menu>
