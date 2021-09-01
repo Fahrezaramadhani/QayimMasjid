@@ -21,6 +21,8 @@ import com.example.qayimmasjid.ui.profil.EditProfilPengurusMasjidActivity;
 import com.google.android.material.button.MaterialButton;
 
 public class DetailKegiatanMasjidActivity extends AppCompatActivity {
+    private Dialog dialogHapusKegiatan;
+    private Button btnHapus, btnBatal;
     private TextView tv_NamaKegiatan, tv_TanggalKegiatan, tv_WaktuKegiatan, tv_LokasiKegiatan, tv_Pemateri, tv_PJ, tv_tempat;
     private String idKegiatan, namaKegiatan, tanggalKegiatan, waktuKegiatan, lokasiKegiatan, pemateri, pj, tempat;
     private MaterialButton btn_edit_kegiatan, btn_hapus_kegiatan;
@@ -34,6 +36,7 @@ public class DetailKegiatanMasjidActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
+        dialogHapusKegiatan = new Dialog(this);
         kegiatanViewModel = new ViewModelProvider(this).get(KegiatanViewModel.class);
 
         tv_NamaKegiatan = findViewById(R.id.tv_detail_nama_kegiatan);
@@ -71,7 +74,7 @@ public class DetailKegiatanMasjidActivity extends AppCompatActivity {
         btn_hapus_kegiatan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteKegiatan(idKegiatan);
+                openDialogHapusKegiatan();            
             }
         });
     }
@@ -124,6 +127,32 @@ public class DetailKegiatanMasjidActivity extends AppCompatActivity {
         return i;
     }
 
+    public void openDialogHapusKegiatan() {
+        Log.d("log", "openDialogHapusKegiatan: Dialog terbuka!");
+        dialogHapusKegiatan.setContentView(R.layout.dialog_hapus_kegiatan);
+        btnHapus = (Button) dialogHapusKegiatan.findViewById(R.id.btn_konfirmasi_hapus_kegiatan);
+        btnBatal = (Button) dialogHapusKegiatan.findViewById(R.id.btn_cancel_konfirmasi_hapus_kegiatan);
+        dialogHapusKegiatan.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialogHapusKegiatan.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        btnHapus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteKegiatan(idKegiatan);
+                Toast.makeText(getApplicationContext(), "Kegiatan berhasil terhapus", Toast.LENGTH_SHORT).show();
+                dialogHapusKegiatan.dismiss();
+                finish();
+            }
+        });
+        btnBatal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Cancel", Toast.LENGTH_SHORT).show();
+                dialogHapusKegiatan.dismiss();
+            }
+        });
+        dialogHapusKegiatan.show();
+    }
+    
     public void deleteKegiatan(String idKegiatan){
         kegiatanViewModel.deleteKegiatan(idKegiatan);
         kegiatanViewModel.getData().observe(this, kegiatanList -> {
